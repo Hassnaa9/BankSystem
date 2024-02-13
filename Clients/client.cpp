@@ -2,32 +2,14 @@
 
 // constructors
 Client::Client() = default;
-Client::Client(string name, string password, int id, double balance)
+Client::Client(string name, string password, double balance)
+    : Person(name, password), balance(balance)
 {
-    this->setName(name);
-    this->setPassword(password);
 }
 
 //_______setter & getter_______//
 
-void Client::setName(string name)
-{
-    this->name = name;
-}
-void Client::setPassword(string password)
-{
-    this->password = password;
-}
-
-int Client::getId()const
-{
-    return this->id;
-}
-string Client::getName()const
-{
-    return this->name;
-}
-double Client::getBalance()const
+double Client::getBalance() const
 {
     return this->balance;
 }
@@ -57,9 +39,4 @@ void Client::display_information()
          << "password: " << string(sz_pass, '*') << "\n"
          << "id: " << this->id << "\n"
          << "Balance: " << this->balance << "\n";
-}
-
-bool Client::is_correct_client(string password, int id)
-{
-    return (this->password == password && this->id == this->id);
 }
